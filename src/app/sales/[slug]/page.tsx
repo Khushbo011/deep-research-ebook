@@ -42,7 +42,7 @@ export default async function SalesPage({ params }: SalesPageProps) {
             <div className="relative w-full max-w-[360px] aspect-[1/1.4] bg-gradient-to-br from-[#1b1510] to-[#0c0907] border border-champagne/30 rounded-r-xl rounded-l-sm shadow-[0_20px_50px_rgba(198,169,114,0.15),_0_0_30px_rgba(0,0,0,0.8)] p-8 sm:p-10 flex flex-col justify-between overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20 mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-40 h-40 bg-champagne/10 blur-[50px] rounded-full"></div>
-              
+
               <div className="relative z-10 flex items-center justify-between">
                 <span className="text-[10px] tracking-[0.3em] font-bold text-champagne uppercase">AssetHub</span>
                 <span className="text-[9px] uppercase tracking-wider text-muted font-bold px-2 py-0.5 border border-white/10 rounded-full bg-white/5">
@@ -105,7 +105,7 @@ export default async function SalesPage({ params }: SalesPageProps) {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] text-muted block mb-1">Price</span>
-                  <span className="text-4xl font-serif font-bold text-ivory">${product.price} USD</span>
+                  <span className="text-4xl font-serif font-bold text-ivory">€{product.price} USD</span>
                 </div>
                 <Link href={`/thank-you?product=${product.id}`} className="w-full sm:w-auto">
                   <Button size="lg" className="w-full">
