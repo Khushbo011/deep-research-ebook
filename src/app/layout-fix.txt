@@ -1,0 +1,11 @@
+import { Navbar } from "@/components/ui/Navbar";
+import { Footer } from "@/components/ui/Footer";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  // layout is already wrapping children in body, so we'll just add Navbar and Footer to layout.tsx
+  // Wait, I should add them to layout.tsx directly.
+}
