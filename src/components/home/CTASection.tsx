@@ -26,10 +26,10 @@ export function CTASection() {
           <p className="text-xl text-muted mb-12 max-w-2xl mx-auto">
             Join thousands of executives, researchers, and founders who rely on our intelligence to navigate the future.
           </p>
-          
+
           <div className="flex flex-col items-center gap-6">
             <Button size="lg" className="w-full sm:w-auto px-12">
-              Purchase Executive Report — $299
+              Purchase Executive Report — €85
             </Button>
             <p className="text-sm text-muted/60 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500" />

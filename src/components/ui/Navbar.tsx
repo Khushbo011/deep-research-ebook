@@ -19,10 +19,9 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Overview", href: "/#overview" },
-    { name: "Research Topics", href: "/#topics" },
-    { name: "Testimonials", href: "/#testimonials" },
-    { name: "About", href: "/about" },
+    { name: "Products", href: "/#products" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -36,10 +35,10 @@ export function Navbar() {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-sm bg-gradient-to-br from-champagne to-soft-gold flex items-center justify-center text-obsidian font-serif font-bold text-lg">
-            D
+            A
           </div>
           <span className="font-serif text-xl tracking-wide text-ivory group-hover:text-champagne transition-colors">
-            DeepResearch
+            AssetHub
           </span>
         </Link>
 
@@ -54,9 +53,11 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Button size="sm" variant="outline">
-            Secure Access
-          </Button>
+          <Link href="/#products">
+            <Button size="sm" variant="outline">
+              Explore Store
+            </Button>
+          </Link>
         </nav>
 
         {/* Mobile Toggle */}
@@ -88,7 +89,9 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Button className="mt-4 w-full">Secure Access</Button>
+              <Link href="/#products" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="mt-4 w-full">Explore Store</Button>
+              </Link>
             </div>
           </motion.div>
         )}
