@@ -21,7 +21,7 @@ export const products: Product[] = [
     slug: "deep-research-autonomous-robots",
     category: "Industry Report",
     image: "/images/ebook-robots-cover.jpg", // We can use CSS styles to render a beautiful mockup instead of a raw image if missing
-    price: 299,
+    price: 85,
     rating: 4.9,
     description: "Explore the technologies, architectures, market trends, and innovations shaping the future of intelligent automation. An exclusive executive intelligence publication.",
     longDescription: "This comprehensive research report provides a deep-dive analysis of the next generation of autonomous systems. Designed for executives, investors, and lead engineers, this publication bypasses the hype to deliver technical architectures, market forecasts, and real-world deployment challenges of autonomous robots and smart factories.",

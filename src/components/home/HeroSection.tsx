@@ -23,13 +23,13 @@ export function HeroSection() {
             <span className="w-2 h-2 rounded-full bg-champagne shadow-[0_0_8px_rgba(198,169,114,0.8)] animate-pulse" />
             <span className="text-sm font-medium text-champagne uppercase tracking-wider">Premium Research Publication</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-ivory leading-tight mb-6">
             The Definitive Guide to <span className="gold-gradient-text">Autonomous Robots</span> & Smart Systems
           </h1>
-          
+
           <p className="text-lg md:text-xl text-muted mb-10 leading-relaxed max-w-xl">
-            Explore the technologies, architectures, market trends, and innovations shaping the future of intelligent automation. An exclusive $299 executive report.
+            Explore the technologies, architectures, market trends, and innovations shaping the future of intelligent automation. An exclusive €85 executive report.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -73,19 +73,19 @@ export function HeroSection() {
             <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0a0806] to-espresso rounded-l-sm border-r border-champagne/10 shadow-[inset_-2px_0_10px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
               <span className="text-[10px] text-muted/50 transform -rotate-90 whitespace-nowrap tracking-[0.2em] uppercase">Deep Research</span>
             </div>
-            
+
             {/* Book Cover Content */}
             <div className="absolute left-8 right-0 top-0 bottom-0 p-8 flex flex-col justify-between overflow-hidden">
               {/* Cover Gradient/Texture Overlay */}
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20 mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-32 h-32 bg-champagne/10 blur-[40px] rounded-full"></div>
-              
+
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-champagne to-soft-gold flex items-center justify-center text-obsidian font-serif font-bold text-2xl mb-8">
                   D
                 </div>
                 <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ivory leading-tight">
-                  Autonomous<br/>Robots &<br/>Smart Systems
+                  Autonomous<br />Robots &<br />Smart Systems
                 </h3>
               </div>
 
@@ -95,16 +95,16 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-          
+
           {/* Subtle floating elements behind book */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }} 
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-10 right-10 w-24 h-24 bg-espresso border border-champagne/20 rounded-lg glass p-4 shadow-xl -z-10"
           >
-             <div className="w-full h-2 bg-champagne/20 rounded-full mb-3" />
-             <div className="w-3/4 h-2 bg-champagne/20 rounded-full mb-3" />
-             <div className="w-1/2 h-2 bg-champagne/20 rounded-full" />
+            <div className="w-full h-2 bg-champagne/20 rounded-full mb-3" />
+            <div className="w-3/4 h-2 bg-champagne/20 rounded-full mb-3" />
+            <div className="w-1/2 h-2 bg-champagne/20 rounded-full" />
           </motion.div>
         </motion.div>
       </div>
