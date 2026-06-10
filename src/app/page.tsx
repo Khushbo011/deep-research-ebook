@@ -1,6 +1,7 @@
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Button } from "@/components/ui/Button";
+import { CTASection } from "@/components/home/CTASection";
 import Link from "next/link";
 import { ShieldCheck, Download, Award, Clock } from "lucide-react";
 
@@ -78,13 +79,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="max-w-xl mx-auto">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
       </section>
+
+      {/* Bottom Call to Action */}
+      <CTASection />
     </div>
   );
 }
+

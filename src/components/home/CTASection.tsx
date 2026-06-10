@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { useCart } from "@/lib/CartContext";
+import { products } from "@/data/products";
 
 export function CTASection() {
+  const { addToCart } = useCart();
+  const product = products[0];
+
   return (
     <section className="py-32 bg-espresso relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -28,7 +33,7 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col items-center gap-6">
-            <Button size="lg" className="w-full sm:w-auto px-12">
+            <Button onClick={() => addToCart(product)} size="lg" className="w-full sm:w-auto px-12">
               Purchase Executive Report — €85
             </Button>
             <p className="text-sm text-muted/60 flex items-center gap-2">
@@ -41,3 +46,4 @@ export function CTASection() {
     </section>
   );
 }
+

@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import { useCart } from "@/lib/CartContext";
+import { products } from "@/data/products";
 
 export function HeroSection() {
+  const { addToCart } = useCart();
+  const product = products[0];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background Effects */}
@@ -33,11 +39,19 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="sm:w-auto">
-              Access Full Report
+            <Button onClick={() => addToCart(product)} size="lg" className="sm:w-auto">
+              Access Full Report — €85
             </Button>
-            <Button size="lg" variant="outline" className="sm:w-auto">
-              View Sample Chapter
+            <Button
+              onClick={() => {
+                const element = document.getElementById("products");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              size="lg"
+              variant="outline"
+              className="sm:w-auto"
+            >
+              Learn More
             </Button>
           </div>
 
@@ -67,33 +81,15 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="relative lg:h-[600px] flex justify-center lg:justify-end items-center"
         >
-          {/* Main Book */}
-          <div className="relative w-[300px] sm:w-[380px] aspect-[1/1.4] rounded-r-lg rounded-l-sm bg-gradient-to-br from-espresso to-[#0a0806] border border-champagne/20 shadow-[20px_20px_60px_rgba(0,0,0,0.8),_0_0_40px_rgba(198,169,114,0.15)] transform rotate-y-[-15deg] rotate-x-[5deg] group hover:scale-105 transition-transform duration-700">
-            {/* Book Spine */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0a0806] to-espresso rounded-l-sm border-r border-champagne/10 shadow-[inset_-2px_0_10px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
-              <span className="text-[10px] text-muted/50 transform -rotate-90 whitespace-nowrap tracking-[0.2em] uppercase">Deep Research</span>
-            </div>
-
-            {/* Book Cover Content */}
-            <div className="absolute left-8 right-0 top-0 bottom-0 p-8 flex flex-col justify-between overflow-hidden">
-              {/* Cover Gradient/Texture Overlay */}
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20 mix-blend-overlay"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-champagne/10 blur-[40px] rounded-full"></div>
-
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-champagne to-soft-gold flex items-center justify-center text-obsidian font-serif font-bold text-2xl mb-8">
-                  D
-                </div>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ivory leading-tight">
-                  Autonomous<br />Robots &<br />Smart Systems
-                </h3>
-              </div>
-
-              <div className="relative z-10 border-t border-champagne/30 pt-6">
-                <p className="text-champagne text-sm uppercase tracking-widest font-medium mb-1">Executive Edition</p>
-                <p className="text-muted/80 text-xs">Volume I &bull; 2026</p>
-              </div>
-            </div>
+          {/* Main Book using Premium generated Image */}
+          <div className="relative w-[300px] sm:w-[380px] aspect-[1/1.4] rounded-r-xl rounded-l-sm bg-gradient-to-br from-espresso to-[#0a0806] border border-champagne/20 shadow-[20px_20px_60px_rgba(0,0,0,0.8),_0_0_40px_rgba(198,169,114,0.15)] transform rotate-y-[-15deg] rotate-x-[5deg] group hover:scale-105 transition-all duration-700 overflow-hidden">
+            <Image
+              src={product.image}
+              alt={product.title}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Subtle floating elements behind book */}
@@ -111,3 +107,4 @@ export function HeroSection() {
     </section>
   );
 }
+

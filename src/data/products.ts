@@ -20,7 +20,7 @@ export const products: Product[] = [
     title: "Deep Research: Autonomous Robots & Smart Systems",
     slug: "deep-research-autonomous-robots",
     category: "Industry Report",
-    image: "/images/ebook-robots-cover.jpg", // We can use CSS styles to render a beautiful mockup instead of a raw image if missing
+    image: "/images/ebook-robots-cover.png",
     price: 85,
     rating: 4.9,
     description: "Explore the technologies, architectures, market trends, and innovations shaping the future of intelligent automation. An exclusive executive intelligence publication.",
@@ -54,39 +54,6 @@ export const products: Product[] = [
       }
     ],
     downloadLink: "https://drive.google.com/file/d/1Gl0Ga9vX6iBjON6B12T3Bgel3FD0lFHx/view?usp=drive_link"
-  },
-  {
-    id: "2",
-    title: "AI Orchestration: Next-Gen Agentic Workflows",
-    slug: "ai-orchestration-agentic-workflows",
-    category: "Technical Guide",
-    image: "/images/ebook-ai-cover.jpg",
-    price: 199,
-    rating: 4.8,
-    description: "The complete guide to architecting multi-agent networks, autonomous planning loops, and production LLM orchestrations.",
-    longDescription: "Step-by-step systems architectures and deployment playbooks for building reliable multi-agent systems. Learn how to address non-determinism, handle state tracking, and build resilient self-correcting agent chains.",
-    features: [
-      "150+ Pages with Code Architectures",
-      "LangChain, AutoGen, and CrewAI Blueprint Compares",
-      "Token Optimization & Caching Strategies",
-      "Interactive Playground Access Code",
-      "Production-ready Python & TS Templates"
-    ],
-    benefits: [
-      "Master Agent Coordination: Learn how to scale agent coordination without infinite routing loops.",
-      "Drastically Lower Cost: Deploy semantic caching and task delegation to save up to 60% on API fees.",
-      "Reliable Error Correction: Implement self-healing code models to recover from non-deterministic failures."
-    ],
-    faqs: [
-      {
-        question: "Does this include code repositories?",
-        answer: "Yes. Purchasing gives you access to a private GitHub repository containing production-ready TypeScript and Python boilerplate code."
-      },
-      {
-        question: "What knowledge level is required?",
-        answer: "We assume intermediate knowledge of Python or Node.js, and familiarity with LLM APIs (OpenAI, Anthropic, or Gemini)."
-      }
-    ],
-    downloadLink: "https://drive.google.com/file/d/1Gl0Ga9vX6iBjON6B12T3Bgel3FD0lFHx/view?usp=drive_link"
   }
 ];
+

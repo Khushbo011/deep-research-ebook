@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useCart } from "@/lib/CartContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openCart, cartCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +55,21 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
+          
+          {/* Cart Icon with badge */}
+          <button
+            onClick={openCart}
+            className="relative p-2 text-muted hover:text-champagne transition-colors"
+            aria-label="Open Cart"
+          >
+            <ShoppingBag className="w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-champagne text-obsidian text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center animate-pulse">
+                {cartCount}
+              </span>
+            )}
+          </button>
+
           <Link href="/#products">
             <Button size="sm" variant="outline">
               Explore Store
@@ -60,13 +77,28 @@ export function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-ivory hover:text-champagne transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Mobile Actions (Cart + Menu) */}
+        <div className="flex items-center gap-4 md:hidden">
+          <button
+            onClick={openCart}
+            className="relative p-2 text-muted hover:text-champagne transition-colors"
+            aria-label="Open Cart"
+          >
+            <ShoppingBag className="w-6 h-6" />
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-0 bg-champagne text-obsidian text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </button>
+          
+          <button
+            className="text-ivory hover:text-champagne transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -99,3 +131,4 @@ export function Navbar() {
     </header>
   );
 }
+
