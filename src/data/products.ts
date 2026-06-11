@@ -93,6 +93,6 @@ export const products: Product[] = [
         answer: "Yes, we offer a 100% satisfaction guarantee. If the guide does not elevate your AI workflow, email support within 45 days for a full refund."
       }
     ],
-    downloadLink: "https://drive.google.com/file/d/1Gl0Ga9vX6iBjON6B12T3Bgel3FD0lFHx/view?usp=drive_link"
+    downloadLink: "https://drive.google.com/file/d/1z6C07Zu3cgTqG_pUGiOUZa-k_zdb4vW-/view?usp=drive_link"
   }
 ];
