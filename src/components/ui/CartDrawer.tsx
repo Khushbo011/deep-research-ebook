@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from "./Button";
 
 export function CartDrawer() {
-  const { cartItems, isOpen, closeCart, updateQuantity, removeFromCart, cartTotal } = useCart();
+  const { cartItems, isOpen, closeCart, updateQuantity, removeFromCart, cartTotal, clearCart } = useCart();
 
   return (
     <AnimatePresence>
@@ -140,8 +140,8 @@ export function CartDrawer() {
                 </div>
 
                 <Link
-                  href={`/sales/${cartItems[0].product.slug}`}
-                  onClick={closeCart}
+                  href={`/thank-you?product=${cartItems[0].product.id}`}
+                  onClick={() => { clearCart(); closeCart(); }}
                   className="block w-full"
                 >
                   <Button className="w-full flex items-center justify-center gap-2 group">
