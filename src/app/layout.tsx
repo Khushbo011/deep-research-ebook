@@ -17,8 +17,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Deep Research: Autonomous Robots & Smart Systems | Premium Report",
-  description: "The Definitive Research Guide to Autonomous Robots & Smart Systems. Explore the technologies, architectures, market trends, and innovations shaping the future of intelligent automation.",
+  title: "AssetHub | Premium Digital Assets for Executive Minds",
+  description: "Acquire industry-defining research, expert guides, and technical tools. Explore our curated collection of premium digital assets compiled by top-tier consultants and systems architects.",
 };
 
 export default function RootLayout({

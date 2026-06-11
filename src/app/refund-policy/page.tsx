@@ -6,7 +6,7 @@ export default function RefundPolicy() {
       <div className="container mx-auto px-6 max-w-4xl">
         <h1 className="text-4xl font-serif font-bold text-ivory mb-8">Refund Policy</h1>
         <p className="text-sm mb-6">Last updated: June 10, 2026</p>
-        
+
         <Card hoverEffect={false} className="p-8 md:p-12 space-y-8 !bg-espresso/20 border-border-gold">
           <section className="space-y-4">
             <h2 className="text-2xl font-serif font-bold text-ivory">1. Digital Nature of Assets</h2>
@@ -16,7 +16,7 @@ export default function RefundPolicy() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-serif font-bold text-ivory">2. 14-Day Satisfaction Guarantee</h2>
+            <h2 className="text-2xl font-serif font-bold text-ivory">2. 45-Day Satisfaction Guarantee</h2>
             <p className="leading-relaxed text-sm">
               We stand behind the quality of our reports and resources. If you find that a purchased product does not deliver the promised value or structure described on its sales page, you may request a full refund within 14 days of your purchase date by contacting support.
             </p>

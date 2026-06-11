@@ -82,7 +82,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="w-full sm:w-auto flex items-center justify-center gap-1.5 shadow-[0_4px_20px_rgba(198,169,114,0.15)] hover:shadow-[0_4px_25px_rgba(198,169,114,0.3)]"
             >
               <ShoppingCart className="w-3.5 h-3.5" />
-              <span>Get Report</span>
+              <span>Add to Cart</span>
             </Button>
           </div>
         </div>

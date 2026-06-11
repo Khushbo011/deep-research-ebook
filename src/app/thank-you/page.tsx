@@ -9,8 +9,16 @@ import { Suspense } from "react";
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get("product") || "1";
-  const product = products.find((p) => p.id === productId) || products[0];
+  const productParam = searchParams.get("product") || "1";
+  const productIds = productParam.split(",");
+  const purchasedProducts = productIds
+    .map((id) => products.find((p) => p.id === id))
+    .filter(Boolean) as typeof products;
+
+  // Fallback to first product if none found
+  if (purchasedProducts.length === 0) {
+    purchasedProducts.push(products[0]);
+  }
 
   return (
     <div className="bg-obsidian min-h-screen pt-32 pb-24 flex items-center justify-center">
@@ -33,43 +41,47 @@ function ThankYouContent() {
           </h1>
 
           <p className="text-muted leading-relaxed mb-10 max-w-md mx-auto">
-            Your purchase was processed securely. Click the button below to instantly access your executive digital publication.
+            Your purchase was processed securely. Click the button{purchasedProducts.length > 1 ? "s" : ""} below to instantly access your executive digital publication{purchasedProducts.length > 1 ? "s" : ""}.
           </p>
 
-          {/* ── PRIMARY DOWNLOAD CTA ── */}
-          <div className="relative mb-10">
-            {/* Outer pulsing ring */}
-            <div className="absolute inset-0 rounded-xl bg-champagne/20 blur-xl animate-pulse -z-10 scale-105" />
-            <a
-              href={product.downloadLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center justify-center gap-3 w-full bg-gradient-to-r from-[#c6a972] via-[#e8d5a3] to-[#c6a972] text-obsidian font-bold rounded-xl px-8 py-6 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_40px_rgba(198,169,114,0.5)] active:scale-[0.99]"
-            >
-              <div className="flex items-center gap-3">
-                <Download className="w-6 h-6 group-hover:animate-bounce" />
-                <span className="font-serif text-xl">Access Your Download</span>
-                <ExternalLink className="w-5 h-5 opacity-70" />
-              </div>
-              <span className="text-xs font-normal opacity-75 tracking-wide">
-                Opens in Google Drive — PDF &amp; EPUB included
-              </span>
-            </a>
-          </div>
+          {/* ── PRIMARY DOWNLOAD CTA(s) ── */}
+          {purchasedProducts.map((product) => (
+            <div key={product.id} className="relative mb-6">
+              {/* Outer pulsing ring */}
+              <div className="absolute inset-0 rounded-xl bg-champagne/20 blur-xl animate-pulse -z-10 scale-105" />
+              <a
+                href={product.downloadLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center justify-center gap-3 w-full bg-gradient-to-r from-[#c6a972] via-[#e8d5a3] to-[#c6a972] text-obsidian font-bold rounded-xl px-8 py-6 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_40px_rgba(198,169,114,0.5)] active:scale-[0.99]"
+              >
+                <div className="flex items-center gap-3">
+                  <Download className="w-6 h-6 group-hover:animate-bounce" />
+                  <span className="font-serif text-xl">Access Your Download</span>
+                  <ExternalLink className="w-5 h-5 opacity-70" />
+                </div>
+                <span className="text-xs font-normal opacity-75 tracking-wide">
+                  {product.title}
+                </span>
+              </a>
+            </div>
+          ))}
 
           {/* Purchased Product Info */}
-          <div className="bg-espresso/40 border border-white/5 rounded-lg p-5 mb-10 text-left">
-            <span className="text-[10px] uppercase tracking-wider text-champagne font-bold block mb-1">
-              {product.category}
-            </span>
-            <h3 className="font-serif text-base font-bold text-ivory line-clamp-2 mb-1">
-              {product.title}
-            </h3>
-            <p className="text-xs text-muted/70">Order Ref: AH-{Math.floor(Math.random() * 90000) + 10000} &nbsp;·&nbsp; Lifetime Access Granted</p>
-          </div>
+          {purchasedProducts.map((product) => (
+            <div key={product.id} className="bg-espresso/40 border border-white/5 rounded-lg p-5 mb-4 text-left">
+              <span className="text-[10px] uppercase tracking-wider text-champagne font-bold block mb-1">
+                {product.category}
+              </span>
+              <h3 className="font-serif text-base font-bold text-ivory line-clamp-2 mb-1">
+                {product.title}
+              </h3>
+              <p className="text-xs text-muted/70">Order Ref: AH-{Math.floor(Math.random() * 90000) + 10000} &nbsp;·&nbsp; Lifetime Access Granted</p>
+            </div>
+          ))}
 
           {/* Access Instructions */}
-          <div className="text-left border-t border-white/5 pt-8 mb-10">
+          <div className="text-left border-t border-white/5 pt-8 mb-10 mt-6">
             <h4 className="text-ivory font-serif font-bold mb-4">Access Instructions</h4>
             <ul className="space-y-3 text-sm text-muted">
               <li className="flex items-start gap-2.5">

@@ -140,7 +140,7 @@ export function CartDrawer() {
                 </div>
 
                 <Link
-                  href={`/thank-you?product=${cartItems[0].product.id}`}
+                  href={`/thank-you?product=${cartItems.map(item => item.product.id).join(',')}`}
                   onClick={() => { clearCart(); closeCart(); }}
                   className="block w-full"
                 >
